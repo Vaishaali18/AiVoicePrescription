@@ -21,10 +21,10 @@ export default function Profile(props) {
         
             let token = localStorage.getItem("auth-token");
          //   console.log(token)
-            const tokenRes = await Axios.post("http://localhost:5000/doctor/tokenIsValid", null, { headers: { "x-auth-token": token } });
+            const tokenRes = await Axios.post("https://voice-prescription-ai.herokuapp.com/doctor/tokenIsValid", null, { headers: { "x-auth-token": token } });
             console.log(tokenRes);
             if (tokenRes.data) {
-                const res = await Axios.get("http://localhost:5000/doctor/profile", { headers: { "x-auth-token": token } });
+                const res = await Axios.get("https://voice-prescription-ai.herokuapp.com/doctor/profile", { headers: { "x-auth-token": token } });
                // console.log(userRes);
                 setName(res.data.name);
                 setEmail(res.data.email);

@@ -33,7 +33,7 @@ export default function Login() {
             }
             else if(password !== "doctor123")
             {
-                const res=await Axios.post("http://localhost:5000/users/login/",loginUser).then((res)=>{
+                const res=await Axios.post("https://voice-prescription-ai.herokuapp.com/users/login/",loginUser).then((res)=>{
                     setUserData({
                         token: res.data.token,
                         user: res.data.user
@@ -46,7 +46,7 @@ export default function Login() {
             else if(password === "doctor123")
             { 
                 console.log("hello")
-                const res=await Axios.post("http://localhost:5000/doctor/login/",loginUser).then((res)=>{
+                const res=await Axios.post("https://voice-prescription-ai.herokuapp.com/doctor/login/",loginUser).then((res)=>{
                 console.log("hello")
                 setUserData({
                     token: res.data.token,

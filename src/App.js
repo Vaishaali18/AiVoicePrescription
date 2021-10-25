@@ -65,10 +65,10 @@ export default function App() {
                 localStorage.setItem("auth-token", "");
                 token = "";
             }
-            const tokenRes = await Axios.post("http://localhost:5000/users/tokenIsValid", null, { headers: { "x-auth-token": token } });
+            const tokenRes = await Axios.post("https://voice-prescription-ai.herokuapp.com/users/tokenIsValid", null, { headers: { "x-auth-token": token } });
             
             if (tokenRes.data) {
-                const userRes = await Axios.get("http://localhost:5000/users/", { headers: { "x-auth-token": token } });
+                const userRes = await Axios.get("https://voice-prescription-ai.herokuapp.com/users/", { headers: { "x-auth-token": token } });
               
                 setUserData({ token, user: userRes.data });
                 setState({isLoading: false, authenticated: token});

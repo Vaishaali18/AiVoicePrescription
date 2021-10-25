@@ -81,7 +81,7 @@ export default function App()
   }
   const deletebooking = async (bookingid) => {
  
-      Axios.delete("http://localhost:5000/doctor/deletebooking/",{
+      Axios.delete("https://voice-prescription-ai.herokuapp.com/doctor/deletebooking/",{
         data:{
           bookingid
         }
@@ -240,14 +240,14 @@ export default function App()
     useEffect(() => {
         const getDetails = async () => {
         //    console.log(doctorId)
-              const res = await Axios.get("http://localhost:5000/users/info?patientId="+ patientId); 
+              const res = await Axios.get("https://voice-prescription-ai.herokuapp.com/users/info?patientId="+ patientId); 
               console.log(res.data)
               setDisplayName(res.data.displayname);
               setDisplayEmail(res.data.email);
           }   
         const getInfo = async () => {
         //    console.log(doctorId)
-              const res = await Axios.get("http://localhost:5000/doctor/info?doctorId="+ doctorId); 
+              const res = await Axios.get("https://voice-prescription-ai.herokuapp.com/doctor/info?doctorId="+ doctorId); 
               console.log(res.data)
               setDoctorName(res.data.firstname + " " + res.data.lastname);
           }     

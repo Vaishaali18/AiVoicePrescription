@@ -21,7 +21,7 @@ export default function App()
     useEffect(()=>{
       
         const getDetails = async () => {
-            const res = await Axios.get("http://localhost:5000/doctor/view"); 
+            const res = await Axios.get("https://voice-prescription-ai.herokuapp.com/doctor/view"); 
             setItems(res.data);
         }
         getDetails();
@@ -52,7 +52,7 @@ export default function App()
      const deleteDoc = async (id) =>{
      
        console.log(id)
-       Axios.delete("http://localhost:5000/doctor/delete",{
+       Axios.delete("https://voice-prescription-ai.herokuapp.com/doctor/delete",{
          data:{
            id
          }

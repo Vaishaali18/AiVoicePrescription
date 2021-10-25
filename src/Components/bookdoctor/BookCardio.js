@@ -22,7 +22,7 @@ export default function App()
     try{
       const bookinfo = { doctorId,patientId }
       console.log(bookinfo)
-      await Axios.post("http://localhost:5000/doctor/booking/", bookinfo);
+      await Axios.post("https://voice-prescription-ai.herokuapp.com/doctor/booking/", bookinfo);
       history.push("/patient/about");
       } catch (err) {
       err.response.data.msg && setError(err.response.data.msg);
@@ -50,17 +50,17 @@ export default function App()
   useEffect(()=>{
     
       const getDetails = async () => {
-          const res = await Axios.get("http://localhost:5000/users/bookCardio"); 
+          const res = await Axios.get("https://voice-prescription-ai.herokuapp.com/users/bookCardio"); 
           setItems(res.data);
       }
       const getProfile = async () => {
         
         let token = localStorage.getItem("auth-token");
      //   console.log(token)
-        const tokenRes = await Axios.post("http://localhost:5000/users/tokenIsValid", null, { headers: { "x-auth-token": token } });
+        const tokenRes = await Axios.post("https://voice-prescription-ai.herokuapp.com/users/tokenIsValid", null, { headers: { "x-auth-token": token } });
         console.log(tokenRes);
         if (tokenRes.data) {
-            const userRes = await Axios.get("http://localhost:5000/users/profile", { headers: { "x-auth-token": token } });
+            const userRes = await Axios.get("https://voice-prescription-ai.herokuapp.com/users/profile", { headers: { "x-auth-token": token } });
            // console.log(userRes);
             setPatientId(userRes.data.id)
           //  console.log(id)

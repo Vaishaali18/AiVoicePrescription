@@ -22,15 +22,15 @@ export default function App()
 useEffect(()=>{
   
     const getUsersCount = async() =>{
-        const res = await Axios.get("http://localhost:5000/users/count");
+        const res = await Axios.get("https://voice-prescription-ai.herokuapp.com/users/count");
         setUsersCount(res.data.count)
       }
       const getDoctorsCount = async() =>{
-        const res = await Axios.get("http://localhost:5000/doctor/count");
+        const res = await Axios.get("https://voice-prescription-ai.herokuapp.com//doctor/count");
         setDoctorsCount(res.data.count)
       }
       const getBookingCount = async() =>{
-        const res = await Axios.get("http://localhost:5000/doctor/bookcount");
+        const res = await Axios.get("https://voice-prescription-ai.herokuapp.com/doctor/bookcount");
         setBookingCount(res.data.count)
       }
   getBookingCount()

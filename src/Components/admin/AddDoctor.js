@@ -73,7 +73,7 @@ export default function App()
             console.log(profile)
           };*/
           const doctorinfo = { firstname, lastname, email, specialization, timing}
-          const res= await Axios.post("http://localhost:5000/doctor/add/", doctorinfo);
+          const res= await Axios.post("https://voice-prescription-ai.herokuapp.com/doctor/add/", doctorinfo);
           history.push("/admin");
         } catch (err) {
           err.response.data.msg && setError(err.response.data.msg);
